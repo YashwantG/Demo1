@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.9.4 on win32)" generated="20210524 13:23:33.550" rpa="false">
+<suite id="s1" name="Project2" source="C:\RED\workspace\Project2">
+<suite id="s1-s1" name="Demo 2" source="C:\RED\workspace\Project2\Demo_2.robot">
+<test id="s1-s1-t1" name="TestCase1">
+<kw name="Parse Xml" library="XML">
+<doc>Parses the given XML file or string into an element structure.</doc>
+<arguments>
+<arg>Script/ABC.xml</arg>
+</arguments>
+<assign>
+<var>${xml_obj}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.210" level="INFO">${xml_obj} = &lt;Element 'employees' at 0x00000280CD93C8B0&gt;</msg>
+<status status="PASS" starttime="20210524 13:23:34.198" endtime="20210524 13:23:34.210"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.210" endtime="20210524 13:23:34.210"></status>
+</kw>
+<kw name="Get Element Text" library="XML">
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[@id="be129"]/firstname</arg>
+</arguments>
+<assign>
+<var>${fname}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.211" level="INFO">${fname} = Jane</msg>
+<status status="PASS" starttime="20210524 13:23:34.211" endtime="20210524 13:23:34.211"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${fname}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.211" endtime="20210524 13:23:34.212"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${fname}</arg>
+<arg>Jane</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.212" endtime="20210524 13:23:34.212"></status>
+</kw>
+<kw name="Get Element" library="XML">
+<doc>Returns an element in the ``source`` matching the ``xpath``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[@id="be129"]/firstname</arg>
+</arguments>
+<assign>
+<var>${get_element_text}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.213" level="INFO">${get_element_text} = &lt;Element 'firstname' at 0x00000280CD93C950&gt;</msg>
+<status status="PASS" starttime="20210524 13:23:34.212" endtime="20210524 13:23:34.213"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${get_element_text}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.213" endtime="20210524 13:23:34.213"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${get_element_text.text}</arg>
+<arg>Jane</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.214" endtime="20210524 13:23:34.214"></status>
+</kw>
+<kw name="Element Text Should Be" library="XML">
+<doc>Verifies that the text of the specified element is ``expected``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>Jane</arg>
+<arg>.//employee[@id="be129"]/firstname</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.214" endtime="20210524 13:23:34.215"></status>
+</kw>
+<kw name="Get Element Count" library="XML">
+<doc>Returns and logs how many elements the given ``xpath`` matches.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[@id="be129"]</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.216" level="INFO">1 element matched './/employee[@id="be129"]'.</msg>
+<msg timestamp="20210524 13:23:34.216" level="INFO">${count} = 1</msg>
+<status status="PASS" starttime="20210524 13:23:34.215" endtime="20210524 13:23:34.216"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${count}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.216" endtime="20210524 13:23:34.217"></status>
+</kw>
+<kw name="Element Attribute Should Match" library="XML">
+<doc>Verifies that the specified attribute matches ``expected``.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>id</arg>
+<arg>be129</arg>
+<arg>.//employee[1]</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.217" endtime="20210524 13:23:34.218"></status>
+</kw>
+<kw name="Get Child Elements" library="XML">
+<doc>Returns the child elements of the specified element as a list.</doc>
+<arguments>
+<arg>${xml_obj}</arg>
+<arg>.//employee[1]</arg>
+</arguments>
+<assign>
+<var>${child_element}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.218" level="INFO">${child_element} = [&lt;Element 'firstname' at 0x00000280CD93C950&gt;, &lt;Element 'lastname' at 0x00000280CD93C9A0&gt;, &lt;Element 'title' at 0x00000280CD93C9F0&gt;, &lt;Element 'division' at 0x00000280CD93CA40&gt;, &lt;Element 'building' at 0x...</msg>
+<status status="PASS" starttime="20210524 13:23:34.218" endtime="20210524 13:23:34.218"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${child_element}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.219" endtime="20210524 13:23:34.219"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${child_element}</arg>
+</arguments>
+<assign>
+<var>${child_count}</var>
+</assign>
+<msg timestamp="20210524 13:23:34.220" level="INFO">Length is 7</msg>
+<msg timestamp="20210524 13:23:34.220" level="INFO">${child_count} = 7</msg>
+<status status="PASS" starttime="20210524 13:23:34.219" endtime="20210524 13:23:34.220"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${child_count}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.220" endtime="20210524 13:23:34.221"></status>
+</kw>
+<kw name="${i} IN RANGE [ 0 | ${count}+1 ]" type="for">
+<kw name="${i} = 0" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${child_element[${i}].text}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.221" endtime="20210524 13:23:34.222"></status>
+</kw>
+<status status="PASS" starttime="20210524 13:23:34.221" endtime="20210524 13:23:34.222"></status>
+</kw>
+<kw name="${i} = 1" type="foritem">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${child_element[${i}].text}</arg>
+</arguments>
+<status status="PASS" starttime="20210524 13:23:34.222" endtime="20210524 13:23:34.223"></status>
+</kw>
+<status status="PASS" starttime="20210524 13:23:34.222" endtime="20210524 13:23:34.223"></status>
+</kw>
+<status status="PASS" starttime="20210524 13:23:34.221" endtime="20210524 13:23:34.223"></status>
+</kw>
+<status status="PASS" starttime="20210524 13:23:34.198" endtime="20210524 13:23:34.223" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20210524 13:23:33.609" endtime="20210524 13:23:34.224"></status>
+</suite>
+<status status="PASS" starttime="20210524 13:23:33.590" endtime="20210524 13:23:34.225"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Project2">Project2</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Demo 2">Project2.Demo 2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
